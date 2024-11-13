@@ -11,6 +11,7 @@ const TrackDetails = (props) => {
         <p>{`${props.selected.title} is a band of the ages!`}</p>
 
         <button onClick={() => props.handleFormView(props.selected)}>Edit</button>
+        <button onClick={() => props.handleRemoveTrack(props.selected)}>Delete</button>
       </div>
     )
 }

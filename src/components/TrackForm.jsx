@@ -5,19 +5,15 @@ const TrackForm = (props) => {
         title: '',
         artist: '',
     }
-    // formData state to control the form
     const [formData, setFormData] = useState(props.selected ? props.selected : initialState);
 
-    // handleChange function to update formData state
     const handleChange = (evt) => {
         setFormData({ ...formData, [evt.target.name]: evt.target.value });
     };
 
-    //evt is an event parameter
     const handleSubmitForm = (evt) => {
         evt.preventDefault();
         if (props.selected) {
-            // Don't forget to pass both formData and the ._id!
             props.handleUpdateTrack(formData, props.selected._id);
           } else {
             props.handleAddTrack(formData);

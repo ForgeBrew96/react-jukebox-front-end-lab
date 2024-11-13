@@ -30,8 +30,19 @@ const index = async () => {
     }
   }
 
+  const deleteTrack = async (trackId) => {
+    try {
+const deletedTrack = await axios.delete(`${BASE_URL}/${trackId}`);
+console.log('Response:', deletedTrack.data);
+return deletedTrack.data
+    } catch(error) {
+      console.log(error)
+    }
+  }
+
 export { 
   index, 
   create,
-  updateTrack
+  updateTrack,
+  deleteTrack
 };

@@ -74,6 +74,25 @@ const handleUpdateTrack = async (formData, trackId) => {
   }
 }
 
+const handleRemoveTrack = async (track) => {
+  try {
+    const trackId = track._id; 
+    const deleteResponse = await trackService.deleteTrack(trackId);
+    if (deleteResponse && deleteResponse.error) {
+      throw new Error(deleteResponse.error);
+    }
+
+    setTrackList((prevTrackList) => {
+      const updatedTrackList = prevTrackList.filter((t) => t._id !== trackId);
+      return updatedTrackList;
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+
+
   return (
     <>
       <Home />
@@ -93,6 +112,7 @@ const handleUpdateTrack = async (formData, trackId) => {
         <TrackDetail
         selected={selected}
         handleFormView={handleFormView}
+        handleRemoveTrack={handleRemoveTrack}
         />
       )
     }
