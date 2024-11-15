@@ -101,6 +101,8 @@ const handleRemoveTrack = async (track) => {
       trackList={trackList}
       updatedSelected={updateSelected}
       handleFormView={handleFormView}
+      handleRemoveTrack={handleRemoveTrack}
+      handleUpdateTrack={handleUpdateTrack}
       isFormOpen={isFormOpen}
       />
       {isFormOpen ? (
