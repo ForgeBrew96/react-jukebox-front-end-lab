@@ -15,9 +15,12 @@ const TrackList = (props) => {
   
     const tracks = props.trackList.map((track) =>
       <li key={track._id}>
-        <a href="#" onClick={() => handlePlayTrack(track)}>{track.title}</a>
+        <h3>{track.title}</h3>
+        <h4>By {track.artist}</h4>
         <button onClick={() => handlePlayTrack(track)}>Play</button>
-        <button onClick={() => handleEditTrack(track)}>Edit</button>
+        <button onClick={() => 
+        {props.isFormOpen ? props.handleFormView(false) : handleEditTrack(track)}}
+          >Edit</button>
         <button onClick={() => handleDeleteTrack(track._id)}>Delete</button>
       </li>
     );
@@ -26,7 +29,9 @@ const TrackList = (props) => {
       <div>
         <h1>Track List</h1>
         {!props.trackList.length ? <h2>No Tracks Yet!</h2> : <ul>{tracks}</ul>}
-        <button onClick={() => props.handleFormView(true)}>
+        <button onClick={() => 
+        {props.isFormOpen ? props.handleFormView(false) : props.handleFormView(true)}
+        }>
           {props.isFormOpen ? 'Close Form' : 'New Track'}
         </button>
       </div>

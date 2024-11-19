@@ -3,7 +3,7 @@ import * as trackService from './services/trackService';
 
 import Home from "./components/Home";
 import TrackList from "./components/TrackList";
-import TrackDetail from "./components/TrackDetail";
+import TrackDetail from "./components/NowPlaying";
 import TrackForm from "./components/TrackForm";
 
 const App = () => {
